@@ -254,41 +254,44 @@ export class LineaSimulacionComponent implements OnInit {
       }
     };
 
-    this.canvas = document.getElementById("lineChartExample");
-    this.ctx = this.canvas.getContext("2d");
+    /**lineChartExample */
+    // this.canvas = document.getElementById("lineChartExample");
+    // this.ctx = this.canvas.getContext("2d");
 
-    this.gradientStroke = this.ctx.createLinearGradient(500, 0, 100, 0);
-    this.gradientStroke.addColorStop(0, '#80b6f4');
-    this.gradientStroke.addColorStop(1, this.chartColor);
+    // this.gradientStroke = this.ctx.createLinearGradient(500, 0, 100, 0);
+    // this.gradientStroke.addColorStop(0, '#80b6f4');
+    // this.gradientStroke.addColorStop(1, this.chartColor);
 
-    this.gradientFill = this.ctx.createLinearGradient(0, 170, 0, 50);
-    this.gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
-    this.gradientFill.addColorStop(1, "rgba(249, 99, 59, 0.40)");
+    // this.gradientFill = this.ctx.createLinearGradient(0, 170, 0, 50);
+    // this.gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+    // this.gradientFill.addColorStop(1, "rgba(249, 99, 59, 0.40)");
 
-    this.lineChartData = [
-      {
-        label: "Active Users",
-        pointBorderWidth: 2,
-        pointHoverRadius: 4,
-        pointHoverBorderWidth: 1,
-        pointRadius: 4,
-        fill: true,
-        borderWidth: 2,
-        data: [542, 480, 430, 550, 530, 453, 380, 434, 568, 610, 700, 630]
-      }
-    ];
-    this.lineChartColors = [
-      {
-        borderColor: "#f96332",
-        pointBorderColor: "#FFF",
-        pointBackgroundColor: "#f96332",
-        backgroundColor: this.gradientFill
-      }
-    ];
-    this.lineChartLabels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    this.lineChartOptions = this.gradientChartOptionsConfiguration;
+    // this.lineChartData = [
+    //   {
+    //     label: "Active Users",
+    //     pointBorderWidth: 2,
+    //     pointHoverRadius: 4,
+    //     pointHoverBorderWidth: 1,
+    //     pointRadius: 4,
+    //     fill: true,
+    //     borderWidth: 2,
+    //     data: [542, 480, 430, 550, 530, 453, 380, 434, 568, 610, 700, 630]
+    //   }
+    // ];
+    // this.lineChartColors = [
+    //   {
+    //     borderColor: "#f96332",
+    //     pointBorderColor: "#FFF",
+    //     pointBackgroundColor: "#f96332",
+    //     backgroundColor: this.gradientFill
+    //   }
+    // ];
+    // this.lineChartLabels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    // this.lineChartOptions = this.gradientChartOptionsConfiguration;
 
-    this.lineChartType = 'line';
+    // this.lineChartType = 'line';
+
+    /**lineChartExampleWithNumbersAndGrid*/
 
     this.canvas = document.getElementById("lineChartExampleWithNumbersAndGrid");
     this.ctx = this.canvas.getContext("2d");
@@ -328,81 +331,82 @@ export class LineaSimulacionComponent implements OnInit {
 
 
 
+    /**barChartSimpleGradientsNumbers */
 
-    this.canvas = document.getElementById("barChartSimpleGradientsNumbers");
-    this.ctx = this.canvas.getContext("2d");
+    // this.canvas = document.getElementById("barChartSimpleGradientsNumbers");
+    // this.ctx = this.canvas.getContext("2d");
 
-    this.gradientFill = this.ctx.createLinearGradient(0, 170, 0, 50);
-    this.gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
-    this.gradientFill.addColorStop(1, this.hexToRGB('#2CA8FF', 0.6));
+    // this.gradientFill = this.ctx.createLinearGradient(0, 170, 0, 50);
+    // this.gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+    // this.gradientFill.addColorStop(1, this.hexToRGB('#2CA8FF', 0.6));
 
 
-    this.lineChartGradientsNumbersData = [
-      {
-        label: "Active Countries",
-        pointBorderWidth: 2,
-        pointHoverRadius: 4,
-        pointHoverBorderWidth: 1,
-        pointRadius: 4,
-        fill: true,
-        borderWidth: 1,
-        data: [80, 99, 86, 96, 123, 85, 100, 75, 88, 90, 123, 155]
-      }
-    ];
-    this.lineChartGradientsNumbersColors = [
-      {
-        backgroundColor: this.gradientFill,
-        borderColor: "#2CA8FF",
-        pointBorderColor: "#FFF",
-        pointBackgroundColor: "#2CA8FF",
-      }
-    ];
-    this.lineChartGradientsNumbersLabels = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    this.lineChartGradientsNumbersOptions = {
-      maintainAspectRatio: false,
-      legend: {
-        display: false
-      },
-      tooltips: {
-        bodySpacing: 4,
-        mode: "nearest",
-        intersect: 0,
-        position: "nearest",
-        xPadding: 10,
-        yPadding: 10,
-        caretPadding: 10
-      },
-      responsive: 1,
-      scales: {
-        yAxes: [{
-          gridLines: {
-            zeroLineColor: "transparent",
-            drawBorder: false
-          }
-        }],
-        xAxes: [{
-          display: 0,
-          ticks: {
-            display: false
-          },
-          gridLines: {
-            zeroLineColor: "transparent",
-            drawTicks: false,
-            display: false,
-            drawBorder: false
-          }
-        }]
-      },
-      layout: {
-        padding: {
-          left: 0,
-          right: 0,
-          top: 15,
-          bottom: 15
-        }
-      }
-    }
+    // this.lineChartGradientsNumbersData = [
+    //   {
+    //     label: "Active Countries",
+    //     pointBorderWidth: 2,
+    //     pointHoverRadius: 4,
+    //     pointHoverBorderWidth: 1,
+    //     pointRadius: 4,
+    //     fill: true,
+    //     borderWidth: 1,
+    //     data: [80, 99, 86, 96, 123, 85, 100, 75, 88, 90, 123, 155]
+    //   }
+    // ];
+    // this.lineChartGradientsNumbersColors = [
+    //   {
+    //     backgroundColor: this.gradientFill,
+    //     borderColor: "#2CA8FF",
+    //     pointBorderColor: "#FFF",
+    //     pointBackgroundColor: "#2CA8FF",
+    //   }
+    // ];
+    // this.lineChartGradientsNumbersLabels = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    // this.lineChartGradientsNumbersOptions = {
+    //   maintainAspectRatio: false,
+    //   legend: {
+    //     display: false
+    //   },
+    //   tooltips: {
+    //     bodySpacing: 4,
+    //     mode: "nearest",
+    //     intersect: 0,
+    //     position: "nearest",
+    //     xPadding: 10,
+    //     yPadding: 10,
+    //     caretPadding: 10
+    //   },
+    //   responsive: 1,
+    //   scales: {
+    //     yAxes: [{
+    //       gridLines: {
+    //         zeroLineColor: "transparent",
+    //         drawBorder: false
+    //       }
+    //     }],
+    //     xAxes: [{
+    //       display: 0,
+    //       ticks: {
+    //         display: false
+    //       },
+    //       gridLines: {
+    //         zeroLineColor: "transparent",
+    //         drawTicks: false,
+    //         display: false,
+    //         drawBorder: false
+    //       }
+    //     }]
+    //   },
+    //   layout: {
+    //     padding: {
+    //       left: 0,
+    //       right: 0,
+    //       top: 15,
+    //       bottom: 15
+    //     }
+    //   }
+    // }
 
-    this.lineChartGradientsNumbersType = 'bar';
+    // this.lineChartGradientsNumbersType = 'bar';
   }
 }
