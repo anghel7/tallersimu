@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { from, of } from 'rxjs';
+import { delay, concatMap } from 'rxjs/operators';
+
+//import { from, of } from 'rxjs';
+//import { delay } from 'rxjs/internal/operators';
+
+
 
 @Component({
   selector: 'app-linea-simulacion',
@@ -303,7 +310,7 @@ export class LineaSimulacionComponent implements OnInit {
     this.gradientFill = this.ctx.createLinearGradient(0, 170, 0, 50);
     this.gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
     this.gradientFill.addColorStop(1, this.hexToRGB('#18ce0f', 0.4));
-
+    //modify
     this.lineChartWithNumbersAndGridData = [
       {
         label: "Email Stats",
@@ -313,7 +320,7 @@ export class LineaSimulacionComponent implements OnInit {
         pointRadius: 4,
         fill: true,
         borderWidth: 2,
-        data: [40, 500, 650, 700, 1200, 1250, 1300, 1900]
+        data: []
       }
     ];
     this.lineChartWithNumbersAndGridColors = [
@@ -324,7 +331,8 @@ export class LineaSimulacionComponent implements OnInit {
         backgroundColor: this.gradientFill
       }
     ];
-    this.lineChartWithNumbersAndGridLabels = ["12pm,", "3pm", "6pm", "9pm", "12am", "3am", "6am", "9am"];
+    //modify
+    this.lineChartWithNumbersAndGridLabels = [];
     this.lineChartWithNumbersAndGridOptions = this.gradientChartOptionsConfigurationWithNumbersAndGrid;
 
     this.lineChartWithNumbersAndGridType = 'line';
@@ -409,4 +417,53 @@ export class LineaSimulacionComponent implements OnInit {
 
     // this.lineChartGradientsNumbersType = 'bar';
   }
+
+
+
+  iniciarSimulacion(): void {
+    let graphicPoints: GraphicPoint[] = [{ "value": 100, "time": "06:00" }, { "value": 110, "time": "06:10" }, { "value": 120, "time": "06:20" }, { "value": 140, "time": "06:30" }, { "value": 160, "time": "06:40" }, { "value": 180, "time": "06:50" }, { "value": 200, "time": "07:00" }, { "value": 120, "time": "07:10" }, { "value": 130, "time": "07:20" }, { "value": 150, "time": "07:30" }, { "value": 170, "time": "07:40" }, { "value": 180, "time": "07:50" }, { "value": 200, "time": "08:00" }, { "value": 190, "time": "09:00" }, { "value": 170, "time": "09:10" }, { "value": 150, "time": "09:20" }, { "value": 130, "time": "09:30" }, { "value": 110, "time": "09:40" }, { "value": 100, "time": "09:50" }, { "value": 100, "time": "10:00" }, { "value": 100, "time": "10:10" }, { "value": 100, "time": "10:20" }, { "value": 100, "time": "10:30" }, { "value": 100, "time": "10:40" }, { "value": 100, "time": "10:50" }, { "value": 100, "time": "11:00" }, { "value": 100, "time": "11:10" }, { "value": 100, "time": "11:20" }, { "value": 100, "time": "11:30" }, { "value": 100, "time": "11:40" }, { "value": 100, "time": "11:50" }, { "value": 200, "time": "12:00" }, { "value": 100, "time": "12:10" }, { "value": 100, "time": "12:20" }, { "value": 100, "time": "12:30" }, { "value": 100, "time": "12:40" }, { "value": 100, "time": "12:50" }, { "value": 300, "time": "13:00" }, { "value": 100, "time": "13:10" }, { "value": 100, "time": "13:20" }, { "value": 100, "time": "13:30" }, { "value": 100, "time": "13:40" }, { "value": 100, "time": "13:50" }, { "value": 200, "time": "14:00" }, { "value": 100, "time": "14:10" }, { "value": 100, "time": "14:20" }, { "value": 100, "time": "14:30" }, { "value": 100, "time": "14:40" }, { "value": 100, "time": "14:50" }, { "value": 150, "time": "15:00" }, { "value": 100, "time": "15:10" }, { "value": 100, "time": "15:20" }, { "value": 100, "time": "15:30" }, { "value": 100, "time": "15:40" }, { "value": 100, "time": "15:50" }, { "value": 100, "time": "16:00" }, { "value": 100, "time": "16:10" }, { "value": 100, "time": "16:20" }, { "value": 100, "time": "16:30" }, { "value": 100, "time": "16:40" }, { "value": 100, "time": "16:50" }, { "value": 100, "time": "17:00" }, { "value": 100, "time": "17:10" }, { "value": 100, "time": "17:20" }, { "value": 100, "time": "17:30" }, { "value": 100, "time": "17:40" }, { "value": 100, "time": "17:50" }, { "value": 150, "time": "18:00" }, { "value": 100, "time": "18:10" }, { "value": 100, "time": "18:20" }, { "value": 100, "time": "18:30" }, { "value": 100, "time": "18:40" }, { "value": 100, "time": "18:50" }, { "value": 200, "time": "19:00" }, { "value": 100, "time": "19:10" }, { "value": 100, "time": "19:20" }, { "value": 100, "time": "19:30" }, { "value": 100, "time": "19:40" }, { "value": 100, "time": "19:50" }, { "value": 300, "time": "20:00" }, { "value": 100, "time": "20:10" }, { "value": 100, "time": "20:20" }, { "value": 100, "time": "20:30" }, { "value": 100, "time": "20:40" }, { "value": 100, "time": "20:50" }, { "value": 100, "time": "21:00" }, { "value": 100, "time": "21:10" }, { "value": 100, "time": "21:20" }, { "value": 100, "time": "21:30" }, { "value": 100, "time": "21:40" }, { "value": 100, "time": "21:50" }, { "value": 150, "time": "22:00" }, { "value": 100, "time": "22:10" }, { "value": 100, "time": "22:20" }, { "value": 100, "time": "22:30" }, { "value": 100, "time": "22:40" }, { "value": 100, "time": "22:50" }, { "value": 90, "time": "23:00" }];
+    from(graphicPoints).pipe(
+      concatMap(item => of(item).pipe(delay(1000)))
+    ).subscribe(graphicPointItem => {
+      this.lineChartWithNumbersAndGridData[0].data.push(graphicPointItem.value);
+      this.lineChartWithNumbersAndGridLabels.push(graphicPointItem.time);
+      this.mostrarGrafico();
+    });
+
+  }
+
+
+  mostrarGrafico(): void {
+    this.canvas = document.getElementById("lineChartExampleWithNumbersAndGrid");
+    this.ctx = this.canvas.getContext("2d");
+
+    this.gradientStroke = this.ctx.createLinearGradient(500, 0, 100, 0);
+    this.gradientStroke.addColorStop(0, '#18ce0f');
+    this.gradientStroke.addColorStop(1, this.chartColor);
+
+    this.gradientFill = this.ctx.createLinearGradient(0, 170, 0, 50);
+    this.gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+    this.gradientFill.addColorStop(1, this.hexToRGB('#18ce0f', 0.4));
+
+
+    //this.lineChartWithNumbersAndGridData[0].data = [100, 110, 120, 140, 160];
+
+    this.lineChartWithNumbersAndGridColors = [
+      {
+        borderColor: "#18ce0f",
+        pointBorderColor: "#FFF",
+        pointBackgroundColor: "#18ce0f",
+        backgroundColor: this.gradientFill
+      }
+    ];
+    //this.lineChartWithNumbersAndGridLabels = ["06:00", "06:10", "06:20", "06:30", "06:40"];
+    this.lineChartWithNumbersAndGridOptions = this.gradientChartOptionsConfigurationWithNumbersAndGrid;
+
+    this.lineChartWithNumbersAndGridType = 'line';
+  }
+}
+
+export interface GraphicPoint {
+  value: number,
+  time: String
 }
