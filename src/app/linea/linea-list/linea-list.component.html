@@ -6,37 +6,33 @@
       <div class="card">
         <div class="card-header">
           <h4 class="card-title">Lineas</h4>
+          <button class="btn btn-primary btn-sm">Crear linea</button>
         </div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
                 <th>
-                  Name
+                  Nombre
                 </th>
                 <th>
-                  Country
+                  # Vagones
                 </th>
                 <th>
-                  City
+                  # Paradas
                 </th>
                 <th class="text-right">
-                  Salary
+                  Opciones
                 </th>
               </thead>
               <tbody>
-                <tr>
-                  <td>
-                    Dakota Rice
-                  </td>
-                  <td>
-                    Niger
-                  </td>
-                  <td>
-                    Oud-Turnhout
-                  </td>
+                <tr *ngFor="let linea of lineaList">
+                  <td>{{linea.nombre}} </td>
+                  <td>{{linea.vagones.length}}</td>
+                  <td>{{linea.paradas.length}}</td>
                   <td class="text-right">
-                    $36,738
+                    <button type="button" routerLink="/dashboard" class="btn btn-primary btn-sm">Iniciar
+                      simulacion</button>
                   </td>
                 </tr>
               </tbody>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LineaService } from '../../shared/services/linea.service';
+import { Linea } from '../../shared/models/linea';
 
 @Component({
   selector: 'app-linea-list',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LineaListComponent implements OnInit {
 
-  constructor() { }
+  lineaList: Linea[] = [];
+
+  constructor(private lineaService: LineaService) { }
 
   ngOnInit() {
+    this.lineaService.getAll().subscribe(
+      (response: Linea[]) => {
+        this.lineaList = response;
+      }
+    );
   }
 
 }
