@@ -5,7 +5,7 @@ import { LineaRoutingModule } from './linea-routing.module';
 import { LineaListComponent } from './linea-list/linea-list.component';
 import { RouterModule } from '@angular/router';
 import { LineaSimulacionComponent } from './linea-simulacion/linea-simulacion.component';
-
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -13,11 +13,13 @@ import { LineaSimulacionComponent } from './linea-simulacion/linea-simulacion.co
     LineaSimulacionComponent
   ],
   exports: [
-    LineaListComponent
+    LineaListComponent,
+    LineaSimulacionComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ChartsModule
     //LineaRoutingModule
   ]
 })

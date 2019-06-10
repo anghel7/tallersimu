@@ -9,6 +9,7 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { LineaListComponent } from '../../linea/linea-list/linea-list.component';
+import { LineaSimulacionComponent } from '../../linea/linea-simulacion/linea-simulacion.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -20,5 +21,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notifications', component: NotificationsComponent },
     { path: 'upgrade', component: UpgradeComponent },
     /** My components*/
-    { path: 'linealist', component: LineaListComponent }
+    { path: 'linealist', component: LineaListComponent },
+    { path: 'lineasimulacion', component: LineaSimulacionComponent }
 ];
