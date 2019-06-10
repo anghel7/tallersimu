@@ -6,10 +6,10 @@ import { LineaListComponent } from './linea-list/linea-list.component';
 
 @NgModule({
   declarations: [
-    //LineaListComponent
+    LineaListComponent
   ],
   exports: [
-    //LineaListComponent
+    LineaListComponent
   ],
   imports: [
     CommonModule,

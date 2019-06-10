@@ -14,7 +14,7 @@ import { ChartsModule } from 'ng2-charts';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
-import { LineaListComponent } from '../../linea/linea-list/linea-list.component';
+import { LineaModule } from '../../linea/linea.module';
 
 @NgModule({
   imports: [
@@ -24,6 +24,7 @@ import { LineaListComponent } from '../../linea/linea-list/linea-list.component'
     ChartsModule,
     NgbModule,
     ToastrModule.forRoot(),
+    LineaModule
   ],
   declarations: [
     DashboardComponent,
@@ -33,8 +34,7 @@ import { LineaListComponent } from '../../linea/linea-list/linea-list.component'
     TypographyComponent,
     IconsComponent,
     MapsComponent,
-    NotificationsComponent,
-    LineaListComponent
+    NotificationsComponent
   ]
 })
 
