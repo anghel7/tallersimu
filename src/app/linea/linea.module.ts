@@ -5,10 +5,15 @@ import { LineaRoutingModule } from './linea-routing.module';
 import { LineaListComponent } from './linea-list/linea-list.component';
 
 @NgModule({
-  declarations: [LineaListComponent],
+  declarations: [
+    //LineaListComponent
+  ],
+  exports: [
+    //LineaListComponent
+  ],
   imports: [
     CommonModule,
-    LineaRoutingModule
+    //LineaRoutingModule
   ]
 })
 export class LineaModule { }
