@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { LineaService } from '../../shared/services/linea.service';
+import { Linea } from '../../shared/models/linea';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-linea-create',
@@ -15,13 +18,20 @@ export class LineaCreateComponent implements OnInit {
 
   });
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private lineaService: LineaService
+  ) { }
 
   ngOnInit() {
   }
 
   createLinea(): void {
-    console.log('trying tto create', this.lineaForm.value);
-
+    this.lineaService.create(this.lineaForm.value).subscribe(
+      (response: Linea) => {
+        this.router.navigate(['linealist']);
+      }
+    );
   }
 }

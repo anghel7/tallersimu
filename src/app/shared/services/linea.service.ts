@@ -30,7 +30,7 @@ export class LineaService {
       "paradas": []
     }
   ];
-
+  counter: number = 4;
   constructor() { }
 
   getAll(): Observable<Linea[]> {
@@ -49,8 +49,21 @@ export class LineaService {
     return null;
   }
 
-  create(ineaToCreate: Linea): Observable<Linea> {
-    return null;
+  create(lineaToCreate: Linea): Observable<Linea> {
+    lineaToCreate.id = this.counter;
+    lineaToCreate.paradas = [];
+    lineaToCreate.vagones = [];
+    this.counter++;
+    return Observable.create(
+      (observer) => {
+        setTimeout(() => {
+          this.list.push(lineaToCreate);
+          observer.next(lineaToCreate);
+          observer.complete();
+        }, 500);
+
+      }
+    );
   }
 
   updateById(id: number, lineaToUpdate: Linea): Observable<Linea> {
