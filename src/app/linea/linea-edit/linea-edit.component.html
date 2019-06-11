@@ -1,3 +1,95 @@
-<p>
-  linea-edit works!
-</p>
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title">Edición de linea</h5>
+        </div>
+        <div class="card-body">
+          <!--form-->
+          <div class="row">
+            <div class="col-md-5 pr-1">
+              <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" [value]="linea.nombre" class="form-control" placeholder="Company">
+              </div>
+            </div>
+            <div class="col-md-7 px-1">
+              <div class="form-group">
+                <label>Descripción</label>
+                <!-- <input type="text" [value]="linea.descripcion" class="form-control" placeholder="Username"> -->
+                <textarea name="textarea" [innerHTML]="linea.descripcion" rows="5" cols="30"
+                  class="form-control"></textarea>
+              </div>
+            </div>
+            <!-- <div class="col-md-4 pl-1">
+              <div class="form-group">
+                <label for="email">Email address</label>
+                  <input name="email" id="email" type="email" class="form-control" placeholder="Email">
+              </div>
+            </div> -->
+          </div>
+          <div class="row">
+            <h5>Vagones</h5>
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>
+                    # Vagon
+                  </th>
+                  <th>
+                    # Pasajeros
+                  </th>
+                  <th class="text-right">
+                    Opciones
+                  </th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let vagon of linea.vagones">
+                    <td>{{vagon.numero}} </td>
+                    <td>{{vagon.cantidad}}</td>
+                    <td class="text-right">
+                      Sin Opciones
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="row">
+            <h5>Paradas</h5>
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  Origen
+                </th>
+                <th>
+                  Destino
+                </th>
+                <th>
+                  Tiempo
+                </th>
+                <th class="text-right">
+                  Opciones
+                </th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let parada of linea.paradas">
+                  <td>{{ parada.origen }}</td>
+                  <td>{{ parada.destino }}</td>
+                  <td>{{ parada.tiempo }} min</td>
+                  <td class="text-right">
+                    Sin opciones
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--form-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -12,8 +12,81 @@ export class LineaService {
       "id": 1,
       "nombre": "Linea Roja",
       "descripcion": "Recorrerá desde la Estación hasta la Facultad de Agronomía de la Universidad Mayor de San Simón en la avenida Petrolera. Tendrá una longitud aproximada de 5.5 kilómetros y siete nuevas estaciones a parte de la Central.",
-      "vagones": [],
-      "paradas": []
+      "vagones": [
+        {
+          id: 0,
+          numero: 1,
+          cantidad: 4
+        },
+        {
+          id: 0,
+          numero: 2,
+          cantidad: 100
+        },
+        {
+          id: 0,
+          numero: 3,
+          cantidad: 100
+        },
+        {
+          id: 0,
+          numero: 4,
+          cantidad: 100
+        },
+        {
+          id: 0,
+          numero: 5,
+          cantidad: 90
+        }, {
+          id: 0,
+          numero: 6,
+          cantidad: 90
+        },
+      ],
+      "paradas": [
+        {
+          id: 0,
+          origen: "Chinata",
+          destino: "Villa Obrajes",
+          tiempo: 3
+        },
+        {
+          id: 0,
+          origen: "Villa Obrajes",
+          destino: "Sacaba",
+          tiempo: 3
+        },
+        {
+          id: 0,
+          origen: "Sacaba",
+          destino: "Huayani",
+          tiempo: 2
+        },
+        {
+          id: 0,
+          origen: "Huayani",
+          destino: "Esmeralda",
+          tiempo: 3
+        },
+        {
+          id: 0,
+          origen: "Esmeralda",
+          destino: "Quintanilla",
+          tiempo: 2
+        },
+        {
+          id: 0,
+          origen: "Quintanilla",
+          destino: "Servicio de caminos",
+          tiempo: 4
+        },
+        {
+          id: 0,
+          origen: "Servicio de caminos",
+          destino: "Muyurina",
+          tiempo: 2
+        }
+      ]
     },
     {
       "id": 2,
@@ -46,7 +119,18 @@ export class LineaService {
   }
 
   getById(id: number): Observable<Linea> {
-    return null;
+    let linea: Linea = this.list.find((linea) => {
+      return linea.id === id;
+    });
+    return Observable.create(
+      (observer) => {
+        setTimeout(() => {
+          observer.next(linea);
+          observer.complete();
+        }, 500);
+
+      }
+    );
   }
 
   create(lineaToCreate: Linea): Observable<Linea> {
