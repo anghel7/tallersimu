@@ -2,10 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { from, of } from 'rxjs';
 import { delay, concatMap } from 'rxjs/operators';
 
-//import { from, of } from 'rxjs';
-//import { delay } from 'rxjs/internal/operators';
-
-
 
 @Component({
   selector: 'app-linea-simulacion',
@@ -423,7 +419,10 @@ export class LineaSimulacionComponent implements OnInit {
     value: 0
   };
 
+  disableSimulacionBtn: boolean = false;
+
   iniciarSimulacion(): void {
+    this.disableSimulacionBtn = true;
     let graphicPoints: GraphicPoint[] = [{ "value": 100, "time": "06:00" }, { "value": 110, "time": "06:10" }, { "value": 120, "time": "06:20" }, { "value": 140, "time": "06:30" }, { "value": 160, "time": "06:40" }, { "value": 180, "time": "06:50" }, { "value": 200, "time": "07:00" }, { "value": 120, "time": "07:10" }, { "value": 130, "time": "07:20" }, { "value": 150, "time": "07:30" }, { "value": 170, "time": "07:40" }, { "value": 180, "time": "07:50" }, { "value": 200, "time": "08:00" }, { "value": 190, "time": "09:00" }, { "value": 170, "time": "09:10" }, { "value": 150, "time": "09:20" }, { "value": 130, "time": "09:30" }, { "value": 110, "time": "09:40" }, { "value": 100, "time": "09:50" }, { "value": 100, "time": "10:00" }, { "value": 100, "time": "10:10" }, { "value": 100, "time": "10:20" }, { "value": 100, "time": "10:30" }, { "value": 100, "time": "10:40" }, { "value": 100, "time": "10:50" }, { "value": 100, "time": "11:00" }, { "value": 100, "time": "11:10" }, { "value": 100, "time": "11:20" }, { "value": 100, "time": "11:30" }, { "value": 100, "time": "11:40" }, { "value": 100, "time": "11:50" }, { "value": 200, "time": "12:00" }, { "value": 100, "time": "12:10" }, { "value": 100, "time": "12:20" }, { "value": 100, "time": "12:30" }, { "value": 100, "time": "12:40" }, { "value": 100, "time": "12:50" }, { "value": 300, "time": "13:00" }, { "value": 100, "time": "13:10" }, { "value": 100, "time": "13:20" }, { "value": 100, "time": "13:30" }, { "value": 100, "time": "13:40" }, { "value": 100, "time": "13:50" }, { "value": 200, "time": "14:00" }, { "value": 100, "time": "14:10" }, { "value": 100, "time": "14:20" }, { "value": 100, "time": "14:30" }, { "value": 100, "time": "14:40" }, { "value": 100, "time": "14:50" }, { "value": 150, "time": "15:00" }, { "value": 100, "time": "15:10" }, { "value": 100, "time": "15:20" }, { "value": 100, "time": "15:30" }, { "value": 100, "time": "15:40" }, { "value": 100, "time": "15:50" }, { "value": 100, "time": "16:00" }, { "value": 100, "time": "16:10" }, { "value": 100, "time": "16:20" }, { "value": 100, "time": "16:30" }, { "value": 100, "time": "16:40" }, { "value": 100, "time": "16:50" }, { "value": 100, "time": "17:00" }, { "value": 100, "time": "17:10" }, { "value": 100, "time": "17:20" }, { "value": 100, "time": "17:30" }, { "value": 100, "time": "17:40" }, { "value": 100, "time": "17:50" }, { "value": 150, "time": "18:00" }, { "value": 100, "time": "18:10" }, { "value": 100, "time": "18:20" }, { "value": 100, "time": "18:30" }, { "value": 100, "time": "18:40" }, { "value": 100, "time": "18:50" }, { "value": 200, "time": "19:00" }, { "value": 100, "time": "19:10" }, { "value": 100, "time": "19:20" }, { "value": 100, "time": "19:30" }, { "value": 100, "time": "19:40" }, { "value": 100, "time": "19:50" }, { "value": 300, "time": "20:00" }, { "value": 100, "time": "20:10" }, { "value": 100, "time": "20:20" }, { "value": 100, "time": "20:30" }, { "value": 100, "time": "20:40" }, { "value": 100, "time": "20:50" }, { "value": 100, "time": "21:00" }, { "value": 100, "time": "21:10" }, { "value": 100, "time": "21:20" }, { "value": 100, "time": "21:30" }, { "value": 100, "time": "21:40" }, { "value": 100, "time": "21:50" }, { "value": 150, "time": "22:00" }, { "value": 100, "time": "22:10" }, { "value": 100, "time": "22:20" }, { "value": 100, "time": "22:30" }, { "value": 100, "time": "22:40" }, { "value": 100, "time": "22:50" }, { "value": 90, "time": "23:00" }];
     from(graphicPoints).pipe(
       concatMap(item => of(item).pipe(delay(1000)))
@@ -439,11 +438,11 @@ export class LineaSimulacionComponent implements OnInit {
       () => {
         this.lineChartWithNumbersAndGridData[0].data = [];
         this.lineChartWithNumbersAndGridLabels = [];
+        this.disableSimulacionBtn = false;
       }
     );
 
   }
-
 
   mostrarGrafico(): void {
     this.canvas = document.getElementById("lineChartExampleWithNumbersAndGrid");
