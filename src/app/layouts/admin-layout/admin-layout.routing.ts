@@ -11,6 +11,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { LineaListComponent } from '../../linea/linea-list/linea-list.component';
 import { LineaSimulacionComponent } from '../../linea/linea-simulacion/linea-simulacion.component';
 import { LineaCreateComponent } from '../../linea/linea-create/linea-create.component';
+import { LineaEditComponent } from '../../linea/linea-edit/linea-edit.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -24,5 +25,6 @@ export const AdminLayoutRoutes: Routes = [
     /** My components*/
     { path: 'linealist', component: LineaListComponent },
     { path: 'lineasimulacion', component: LineaSimulacionComponent },
-    { path: 'lineacreate', component: LineaCreateComponent }
+    { path: 'lineacreate', component: LineaCreateComponent },
+    { path: 'linea/:id/edit', component: LineaEditComponent }
 ];

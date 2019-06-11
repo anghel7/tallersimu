@@ -6,12 +6,14 @@ import { RouterModule } from '@angular/router';
 import { LineaSimulacionComponent } from './linea-simulacion/linea-simulacion.component';
 import { ChartsModule } from 'ng2-charts';
 import { LineaCreateComponent } from './linea-create/linea-create.component';
+import { LineaEditComponent } from './linea-edit/linea-edit.component';
 
 @NgModule({
   declarations: [
     LineaListComponent,
     LineaSimulacionComponent,
-    LineaCreateComponent
+    LineaCreateComponent,
+    LineaEditComponent
   ],
   exports: [
     LineaListComponent,
