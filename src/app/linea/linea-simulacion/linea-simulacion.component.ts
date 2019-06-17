@@ -6,6 +6,7 @@ import { LineaService } from '../../shared/services/linea.service';
 import { FormBuilder } from '@angular/forms';
 import { Linea } from '../../shared/models/linea';
 import { Vagon } from '../../shared/models/vagon';
+import { GraphicPoint } from '../../shared/models/graphic-point';
 
 
 @Component({
@@ -507,9 +508,4 @@ export class LineaSimulacionComponent implements OnInit {
   setUpCheck($event: MouseEvent, vagon: Vagon): void {
     vagon.checked = !vagon.checked;
   }
-}
-
-export interface GraphicPoint {
-  value: number,
-  time: String
 }
