@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { LineaModule } from '../../linea/linea.module';
+import { InicioComponent } from '../../inicio/inicio.component';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { LineaModule } from '../../linea/linea.module';
     TypographyComponent,
     IconsComponent,
     MapsComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    InicioComponent
   ]
 })
 
