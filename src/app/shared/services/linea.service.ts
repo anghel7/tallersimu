@@ -16,31 +16,37 @@ export class LineaService {
         {
           id: 0,
           numero: 1,
-          cantidad: 4
+          cantidad: 4,
+          checked: true
         },
         {
           id: 0,
           numero: 2,
-          cantidad: 100
+          cantidad: 100,
+          checked: true
         },
         {
           id: 0,
           numero: 3,
-          cantidad: 100
+          cantidad: 100,
+          checked: true
         },
         {
           id: 0,
           numero: 4,
-          cantidad: 100
+          cantidad: 100,
+          checked: true
         },
         {
           id: 0,
           numero: 5,
-          cantidad: 90
+          cantidad: 90,
+          checked: true
         }, {
           id: 0,
           numero: 6,
-          cantidad: 90
+          cantidad: 90,
+          checked: true
         },
       ],
       "paradas": [

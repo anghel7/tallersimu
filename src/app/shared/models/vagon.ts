@@ -1,5 +1,6 @@
 export interface Vagon {
  id: number,
  numero: number,
- cantidad: number
+ cantidad: number,
+ checked: boolean,
 }

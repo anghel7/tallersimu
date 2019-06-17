@@ -29,7 +29,7 @@
               [colors]="lineChartColors" [options]="lineChartOptions" [chartType]="lineChartType"
               (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
           </div>
-        </div>
+        </div> 
         <div class="card-footer">
           <div class="stats">
             <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
@@ -38,39 +38,41 @@
       </div>
     </div> -->
     <!--Div 2-->
-    <div class="col-md-6">
+    <div class="col-lg-6 col-md-12 col-sm-12" *ngIf="linea">
       <div class="card  card-tasks">
         <div class="card-header ">
-          <h5 class="card-category">Backend development</h5>
-          <h4 class="card-title">Seleccione los vagones para iniciar la simulación</h4>
+          <button type="button" (click)="ishiddenP =! ishiddenP" class="btn btn-primary btn-sm">Seleccione los vagones
+            para iniciar la simulación</button>
         </div>
-        <div class="card-body ">
+        <div class="card-body " *ngIf="!ishiddenP">
           <div class="table-full-width table-responsive">
             <table class="table">
-              <tbody>
-                <tr>
+              <tbody *ngIf="linea">
+                <tr *ngFor="let vagon of linea.vagones">
                   <td>
                     <div class="form-check">
                       <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" checked>
+                        <input class="form-check-input" type="checkbox" [checked]="vagon.checked"
+                          (click)="setUpCheck($event, vagon)">
                         <span class="form-check-sign"></span>
                       </label>
                     </div>
                   </td>
-                  <td class="text-left">Sign contract for "What are conference organizers afraid of?"</td>                  
-                </tr>               
+                  <td class="text-left">{{ "Vagon: "+vagon.numero+"    Capacidad: "+vagon.cantidad }}</td>
+                </tr>
               </tbody>
             </table>
+            element.source == 1 ? 'upwork
           </div>
         </div>
-        <div class="card-footer "></div>
+        <div class="card-footer"></div>
       </div>
     </div>
     <div class="col-lg-12 col-md-12">
       <div class="card card-chart">
         <div class="card-header">
-          <h5 class="card-category">Lineas</h5>
-          <h4 class="card-title">Roja,Amarilla,Verde</h4>
+          <h5 class="card-category">Simulacioón por hora</h5>
+          <h4 class="card-title">{{linea ? linea.nombre:'No se pudo recuerar la La linea'}}</h4>
           <div ngbDropdown>
             <p><b>Hora:</b> {{ graphicPoint.time }} &nbsp;&nbsp;&nbsp; <b>Cantidad
                 pasajeros:</b>{{ graphicPoint.value }}</p>

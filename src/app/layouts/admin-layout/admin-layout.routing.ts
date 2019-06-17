@@ -24,7 +24,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'upgrade', component: UpgradeComponent },
     /** My components*/
     { path: 'linealist', component: LineaListComponent },
-    { path: 'lineasimulacion', component: LineaSimulacionComponent },
+    { path: 'lineasimulacion/:id', component: LineaSimulacionComponent },
     { path: 'lineacreate', component: LineaCreateComponent },
     { path: 'linea/:id/edit', component: LineaEditComponent }
 ];

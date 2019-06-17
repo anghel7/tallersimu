@@ -24,6 +24,7 @@ export class LineaEditComponent implements OnInit {
     id: [0],
     numero: [0,],
     cantidad: [0, [Validators.required]],
+    checked: [true]
 
   });
 

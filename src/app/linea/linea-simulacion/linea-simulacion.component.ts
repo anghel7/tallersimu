@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { from, of } from 'rxjs';
-import { delay, concatMap } from 'rxjs/operators';
+import { delay, concatMap, elementAt } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LineaService } from '../../shared/services/linea.service';
+import { FormBuilder } from '@angular/forms';
+import { Linea } from '../../shared/models/linea';
+import { Vagon } from '../../shared/models/vagon';
 
 
 @Component({
@@ -59,12 +64,37 @@ export class LineaSimulacionComponent implements OnInit {
       return "rgb(" + r + ", " + g + ", " + b + ")";
     }
   }
-  constructor() { }
+  linea: Linea = undefined;
+  ishiddenP: boolean = true;
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private lineaService: LineaService,
+    private formBuilder: FormBuilder
+  ) { }
 
   ngOnInit() {
-    // this.chartColor = "#FFFFFF";
+    this.activatedRoute.paramMap.subscribe(
+      (data) => {
+        if (data.has('id')) {
+          this.lineaService.getById(Number(data.get('id')))
+            .subscribe(
+              (response: Linea) => {
+                this.linea = response;
+              },
+              (error) => {
+                console.log('error: ', error);
+              }
+            );
+        }
+      },
+      (error) => {
+        console.log('printing error', error);
+      }
+    );
+    this.chartColor = "#FFFFFF";
     // this.canvas = document.getElementById("bigDashboardChart");
-    // this.ctx = this.canvas.getContext("2d");
+    //this.ctx = this.canvas.getContext("2d");
 
     // this.gradientStroke = this.ctx.createLinearGradient(500, 0, 100, 0);
     // this.gradientStroke.addColorStop(0, '#80b6f4');
@@ -74,188 +104,189 @@ export class LineaSimulacionComponent implements OnInit {
     // this.gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
     // this.gradientFill.addColorStop(1, "rgba(255, 255, 255, 0.24)");
 
-    // this.lineBigDashboardChartData = [
-    //   {
-    //     label: "Data",
+    this.lineBigDashboardChartData = [
+      {
+        label: "Data",
 
-    //     pointBorderWidth: 1,
-    //     pointHoverRadius: 7,
-    //     pointHoverBorderWidth: 2,
-    //     pointRadius: 5,
-    //     fill: true,
+        pointBorderWidth: 1,
+        pointHoverRadius: 7,
+        pointHoverBorderWidth: 2,
+        pointRadius: 5,
+        fill: true,
 
-    //     borderWidth: 2,
-    //     data: [50, 150, 100, 190, 130, 90, 150, 160, 120, 140, 190, 95]
-    //   }
-    // ];
-    // this.lineBigDashboardChartColors = [
-    //   {
-    //     backgroundColor: this.gradientFill,
-    //     borderColor: this.chartColor,
-    //     pointBorderColor: this.chartColor,
-    //     pointBackgroundColor: "#2c2c2c",
-    //     pointHoverBackgroundColor: "#2c2c2c",
-    //     pointHoverBorderColor: this.chartColor,
-    //   }
-    // ];
-    // this.lineBigDashboardChartLabels = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-    // this.lineBigDashboardChartOptions = {
+        borderWidth: 2,
+        data: [50, 150, 100, 190, 130, 90, 150, 160, 120, 140, 190, 95]
+      }
+    ];
+    this.lineBigDashboardChartColors = [
+      {
+        backgroundColor: this.gradientFill,
+        borderColor: this.chartColor,
+        pointBorderColor: this.chartColor,
+        pointBackgroundColor: "#2c2c2c",
+        pointHoverBackgroundColor: "#2c2c2c",
+        pointHoverBorderColor: this.chartColor,
+      }
+    ];
+    this.lineBigDashboardChartLabels = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+    this.lineBigDashboardChartOptions = {
 
-    //   layout: {
-    //     padding: {
-    //       left: 20,
-    //       right: 20,
-    //       top: 0,
-    //       bottom: 0
-    //     }
-    //   },
-    //   maintainAspectRatio: false,
-    //   tooltips: {
-    //     backgroundColor: '#fff',
-    //     titleFontColor: '#333',
-    //     bodyFontColor: '#666',
-    //     bodySpacing: 4,
-    //     xPadding: 12,
-    //     mode: "nearest",
-    //     intersect: 0,
-    //     position: "nearest"
-    //   },
-    //   legend: {
-    //     position: "bottom",
-    //     fillStyle: "#FFF",
-    //     display: false
-    //   },
-    //   scales: {
-    //     yAxes: [{
-    //       ticks: {
-    //         fontColor: "rgba(255,255,255,0.4)",
-    //         fontStyle: "bold",
-    //         beginAtZero: true,
-    //         maxTicksLimit: 5,
-    //         padding: 10
-    //       },
-    //       gridLines: {
-    //         drawTicks: true,
-    //         drawBorder: false,
-    //         display: true,
-    //         color: "rgba(255,255,255,0.1)",
-    //         zeroLineColor: "transparent"
-    //       }
+      layout: {
+        padding: {
+          left: 20,
+          right: 20,
+          top: 0,
+          bottom: 0
+        }
+      },
+      maintainAspectRatio: false,
+      tooltips: {
+        backgroundColor: '#fff',
+        titleFontColor: '#333',
+        bodyFontColor: '#666',
+        bodySpacing: 4,
+        xPadding: 12,
+        mode: "nearest",
+        intersect: 0,
+        position: "nearest"
+      },
+      legend: {
+        position: "bottom",
+        fillStyle: "#FFF",
+        display: false
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            fontColor: "rgba(255,255,255,0.4)",
+            fontStyle: "bold",
+            beginAtZero: true,
+            maxTicksLimit: 5,
+            padding: 10
+          },
+          gridLines: {
+            drawTicks: true,
+            drawBorder: false,
+            display: true,
+            color: "rgba(255,255,255,0.1)",
+            zeroLineColor: "transparent"
+          }
 
-    //     }],
-    //     xAxes: [{
-    //       gridLines: {
-    //         zeroLineColor: "transparent",
-    //         display: false,
+        }],
+        xAxes: [{
+          gridLines: {
+            zeroLineColor: "transparent",
+            display: false,
 
-    //       },
-    //       ticks: {
-    //         padding: 10,
-    //         fontColor: "rgba(255,255,255,0.4)",
-    //         fontStyle: "bold"
-    //       }
-    //     }]
-    //   }
-    // };
+          },
+          ticks: {
+            padding: 10,
+            fontColor: "rgba(255,255,255,0.4)",
+            fontStyle: "bold"
+          }
+        }]
+      }
+    };
 
-    // this.lineBigDashboardChartType = 'line';
+    this.lineBigDashboardChartType = 'line';
 
 
-    // this.gradientChartOptionsConfiguration = {
-    //   maintainAspectRatio: false,
-    //   legend: {
-    //     display: false
-    //   },
-    //   tooltips: {
-    //     bodySpacing: 4,
-    //     mode: "nearest",
-    //     intersect: 0,
-    //     position: "nearest",
-    //     xPadding: 10,
-    //     yPadding: 10,
-    //     caretPadding: 10
-    //   },
-    //   responsive: 1,
-    //   scales: {
-    //     yAxes: [{
-    //       display: 0,
-    //       ticks: {
-    //         display: false
-    //       },
-    //       gridLines: {
-    //         zeroLineColor: "transparent",
-    //         drawTicks: false,
-    //         display: false,
-    //         drawBorder: false
-    //       }
-    //     }],
-    //     xAxes: [{
-    //       display: 0,
-    //       ticks: {
-    //         display: false
-    //       },
-    //       gridLines: {
-    //         zeroLineColor: "transparent",
-    //         drawTicks: false,
-    //         display: false,
-    //         drawBorder: false
-    //       }
-    //     }]
-    //   },
-    //   layout: {
-    //     padding: {
-    //       left: 0,
-    //       right: 0,
-    //       top: 15,
-    //       bottom: 15
-    //     }
-    //   }
-    // };
+    this.gradientChartOptionsConfiguration = {
+      maintainAspectRatio: false,
+      legend: {
+        display: false
+      },
+      tooltips: {
+        bodySpacing: 4,
+        mode: "nearest",
+        intersect: 0,
+        position: "nearest",
+        xPadding: 10,
+        yPadding: 10,
+        caretPadding: 10
+      },
+      responsive: 1,
+      scales: {
+        yAxes: [{
+          display: 0,
+          ticks: {
+            display: false
+          },
+          gridLines: {
+            zeroLineColor: "transparent",
+            drawTicks: false,
+            display: false,
+            drawBorder: false
+          }
+        }],
+        xAxes: [{
+          display: 0,
+          ticks: {
+            display: false
+          },
+          gridLines: {
+            zeroLineColor: "transparent",
+            drawTicks: false,
+            display: false,
+            drawBorder: false
+          }
+        }]
+      },
+      layout: {
+        padding: {
+          left: 0,
+          right: 0,
+          top: 15,
+          bottom: 15
+        }
+      }
+    };
 
-    // this.gradientChartOptionsConfigurationWithNumbersAndGrid = {
-    //   maintainAspectRatio: false,
-    //   legend: {
-    //     display: false
-    //   },
-    //   tooltips: {
-    //     bodySpacing: 4,
-    //     mode: "nearest",
-    //     intersect: 0,
-    //     position: "nearest",
-    //     xPadding: 10,
-    //     yPadding: 10,
-    //     caretPadding: 10
-    //   },
-    //   responsive: true,
-    //   scales: {
-    //     yAxes: [{
-    //       gridLines: {
-    //         zeroLineColor: "transparent",
-    //         drawBorder: false
-    //       }
-    //     }],
-    //     xAxes: [{
-    //       display: 0,
-    //       ticks: {
-    //         display: false
-    //       },
-    //       gridLines: {
-    //         zeroLineColor: "transparent",
-    //         drawTicks: false,
-    //         display: false,
-    //         drawBorder: false
-    //       }
-    //     }]
-    //   },
-    //   layout: {
-    //     padding: {
-    //       left: 0,
-    //       right: 0,
-    //       top: 15,
-    //       bottom: 15
-    //     }
-    //   }
-    // };
+
+    this.gradientChartOptionsConfigurationWithNumbersAndGrid = {
+      maintainAspectRatio: false,
+      legend: {
+        display: false
+      },
+      tooltips: {
+        bodySpacing: 4,
+        mode: "nearest",
+        intersect: 0,
+        position: "nearest",
+        xPadding: 10,
+        yPadding: 10,
+        caretPadding: 10
+      },
+      responsive: true,
+      scales: {
+        yAxes: [{
+          gridLines: {
+            zeroLineColor: "transparent",
+            drawBorder: false
+          }
+        }],
+        xAxes: [{
+          display: 0,
+          ticks: {
+            display: false
+          },
+          gridLines: {
+            zeroLineColor: "transparent",
+            drawTicks: false,
+            display: false,
+            drawBorder: false
+          }
+        }]
+      },
+      layout: {
+        padding: {
+          left: 0,
+          right: 0,
+          top: 15,
+          bottom: 15
+        }
+      }
+    };
 
     /**lineChartExample */
     // this.canvas = document.getElementById("lineChartExample");
@@ -471,6 +502,10 @@ export class LineaSimulacionComponent implements OnInit {
     this.lineChartWithNumbersAndGridOptions = this.gradientChartOptionsConfigurationWithNumbersAndGrid;
 
     this.lineChartWithNumbersAndGridType = 'line';
+  }
+
+  setUpCheck($event: MouseEvent, vagon: Vagon): void {
+    vagon.checked = !vagon.checked;
   }
 }
 
