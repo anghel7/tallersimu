@@ -1,20 +1,14 @@
-<!-- <div class="card card-chart">
+<div class="card card-chart">
   <div class="card-header">
-    <h5 class="card-category">Simulación por hora</h5>
+    <h5 class="card-category">Simulación por Dia</h5>
     <h4 class="card-title">{{linea ? linea.nombre:'No se pudo recuerar la La linea'}}</h4>
     <div ngbDropdown>
-      <p><b>Hora:</b> {{ graphicPoint.time }} &nbsp;&nbsp;&nbsp; <b>Cantidad
+      <p><b>Dia:</b> {{ graphicPoint.time }} &nbsp;&nbsp;&nbsp; <b>Cantidad
           pasajeros:</b>{{ graphicPoint.value }}</p>
       <button type="button" (click)="iniciarSimulacion()" [disabled]="disableSimulacionBtn"
         class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret" ngbDropdownToggle>
         <i class="now-ui-icons media-1_button-play"></i>
       </button>
-      <div *ngIf="false" ngbDropdownMenu class="dropdown-menu-right">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-        <a class="dropdown-item text-danger" href="#">Remove Data</a>
-      </div>
     </div>
   </div>
   <div class="card-body">
@@ -31,4 +25,4 @@
       <i class="now-ui-icons arrows-1_refresh-69"></i>Ver Resultado de la simulación
     </div>
   </div>
-</div> -->
+</div>
