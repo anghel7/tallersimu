@@ -67,12 +67,24 @@ export class LineaSimulacionComponent implements OnInit {
   }
   linea: Linea = undefined;
   ishiddenP: boolean = true;
+
+  numvagones: number = 0;
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private lineaService: LineaService,
     private formBuilder: FormBuilder
   ) { }
+
+  calculateNumVagones(): void {
+    this.numvagones = 0;
+    this.linea.vagones.forEach(vagon => {
+      if (vagon.checked) {
+        this.numvagones++;
+      }
+    });
+  }
+
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(
@@ -82,6 +94,7 @@ export class LineaSimulacionComponent implements OnInit {
             .subscribe(
               (response: Linea) => {
                 this.linea = response;
+                this.calculateNumVagones();
               },
               (error) => {
                 console.log('error: ', error);
@@ -507,5 +520,6 @@ export class LineaSimulacionComponent implements OnInit {
 
   setUpCheck($event: MouseEvent, vagon: Vagon): void {
     vagon.checked = !vagon.checked;
+    this.calculateNumVagones();
   }
 }

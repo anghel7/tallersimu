@@ -71,7 +71,8 @@
       <div class="card card-chart">
         <div class="card-header">
           <h5 class="card-category">Simulación por hora</h5>
-          <h4 class="card-title">{{linea ? linea.nombre:'No se pudo recuerar la La linea'}}</h4>
+          <h4 class="card-title">
+            {{linea ? linea.nombre:'No se pudo recuerar la La linea'}}<small>({{numvagones+' Vagones'}})</small></h4>
           <div ngbDropdown>
             <p><b>Hora:</b> {{ graphicPoint.time }} &nbsp;&nbsp;&nbsp; <b>Cantidad
                 pasajeros:</b>{{ graphicPoint.value }}</p>
@@ -104,13 +105,13 @@
       </div>
     </div>
     <div class="col-lg-12 col-md-12" *ngIf="linea">
-      <app-linea-simulacion-dia [linea]="linea"></app-linea-simulacion-dia>
+      <app-linea-simulacion-dia [linea]="linea" [numvagones]="numvagones"></app-linea-simulacion-dia>
     </div>
     <div class="col-lg-12 col-md-12">
-      <app-linea-simulacion-semana [linea]="linea"></app-linea-simulacion-semana>
+      <app-linea-simulacion-semana [linea]="linea" [numvagones]="numvagones"></app-linea-simulacion-semana>
     </div>
     <div class="col-lg-12 col-md-12">
-      <app-linea-simulacion-mes [linea]="linea"></app-linea-simulacion-mes>
+      <app-linea-simulacion-mes [linea]="linea" [numvagones]="numvagones"></app-linea-simulacion-mes>
     </div>
     <!--Div 3-->
     <!-- <div class="col-lg-4 col-md-6">

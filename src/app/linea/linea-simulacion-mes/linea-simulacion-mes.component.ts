@@ -53,6 +53,9 @@ export class LineaSimulacionMesComponent implements OnInit {
   @Input()
   public linea: Linea;
 
+  @Input()
+  public numvagones:number;
+
 
   // events
   public chartClicked(e: any): void {

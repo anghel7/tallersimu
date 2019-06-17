@@ -51,6 +51,9 @@ export class LineaSimulacionDiaComponent implements OnInit {
 
   @Input()
   public linea: Linea;
+  
+  @Input()
+  public numvagones:number;
 
 
   // events
