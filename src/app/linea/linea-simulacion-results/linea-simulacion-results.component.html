@@ -11,7 +11,23 @@
         </div>
         <div class="card-body">
           <div class="table-full-width table-responsive">
-            <p>contenido</p>
+            <table class="table" *ngIf="dataMeses">
+              <thead class="text-primary">
+                <th *ngFor="let header of dataMeses.headers">
+                  {{ header }}
+                </th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let column of dataMeses.columns">
+                  <td *ngFor="let value of column;  let i = index">
+                    <b *ngIf="i == 0; else normal">{{ value }}</b>
+                    <ng-template #normal>
+                      {{ value }}
+                    </ng-template>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
