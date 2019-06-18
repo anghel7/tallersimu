@@ -5,90 +5,91 @@
 <div class="main-content">
   <div class="row">
     <div class="col-md-6">
-      <div class="card">
-        <div class="card-header ">
-          <h4 class="card-title">Meses</h4>
-        </div>
-        <div class="card-body">
-          <div class="table-full-width table-responsive">
-            <table class="table" *ngIf="dataMeses">
-              <thead class="text-primary">
-                <th *ngFor="let header of dataMeses.headers">
-                  {{ header }}
-                </th>
-              </thead>
-              <tbody>
-                <tr *ngFor="let column of dataMeses.columns">
-                  <td *ngFor="let value of column;  let i = index">
-                    <b *ngIf="i == 0; else normal">{{ value }}</b>
-                    <ng-template #normal>
-                      {{ value }}
-                    </ng-template>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      <div class="row">
+        <div class="card">
+          <div class="card-header ">
+            <h4 class="card-title">Meses</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-full-width table-responsive">
+              <table class="table" *ngIf="dataMeses">
+                <thead class="text-primary">
+                  <th *ngFor="let header of dataMeses.headers">
+                    {{ header }}
+                  </th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let column of dataMeses.columns">
+                    <td *ngFor="let value of column;  let i = index">
+                      <b *ngIf="i == 0; else normal">{{ value }}</b>
+                      <ng-template #normal>
+                        {{ value }}
+                      </ng-template>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header">
-          <h4 class="card-title">Semanas</h4>
-        </div>
-        <div class="card-body">
-          <div class="table-full-width table-responsive">
-            <table class="table" *ngIf="dataSemanas">
-              <thead class="text-primary">
-                <th *ngFor="let header of dataSemanas.headers">
-                  {{ header }}
-                </th>
-              </thead>
-              <tbody>
-                <tr *ngFor="let column of dataSemanas.columns">
-                  <td *ngFor="let value of column;  let i = index">
-                    <b *ngIf="i == 0; else normal">{{ value }}</b>
-                    <ng-template #normal>
-                      {{ value }}
-                    </ng-template>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      <div class="row">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Semanas</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-full-width table-responsive">
+              <table class="table" *ngIf="dataSemanas">
+                <thead class="text-primary">
+                  <th *ngFor="let header of dataSemanas.headers">
+                    {{ header }}
+                  </th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let column of dataSemanas.columns">
+                    <td *ngFor="let value of column;  let i = index">
+                      <b *ngIf="i == 0; else normal">{{ value }}</b>
+                      <ng-template #normal>
+                        {{ value }}
+                      </ng-template>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header ">
-          <h4 class="card-title">Dias</h4>
-        </div>
-        <div class="card-body">
-          <div class="table-full-width table-responsive">
-            <table class="table" *ngIf="dataDias">
-              <thead class="text-primary">
-                <th *ngFor="let header of dataDias.headers">
-                  {{ header }}
-                </th>
-              </thead>
-              <tbody>
-                <tr *ngFor="let column of dataDias.columns">
-                  <td *ngFor="let value of column;  let i = index">
-                    <b *ngIf="i == 0; else normal">{{ value }}</b>
-                    <ng-template #normal>
-                      {{ value }}
-                    </ng-template>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+      <div class="row">
+        <div class="card">
+          <div class="card-header ">
+            <h4 class="card-title">Dias</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-full-width table-responsive">
+              <table class="table" *ngIf="dataDias">
+                <thead class="text-primary">
+                  <th *ngFor="let header of dataDias.headers">
+                    {{ header }}
+                  </th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let column of dataDias.columns">
+                    <td *ngFor="let value of column;  let i = index">
+                      <b *ngIf="i == 0; else normal">{{ value }}</b>
+                      <ng-template #normal>
+                        {{ value }}
+                      </ng-template>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
     <div class="col-md-6">
       <div class="card">
