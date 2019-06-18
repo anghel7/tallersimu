@@ -11,6 +11,7 @@ export const ROUTES: RouteInfo[] = [
   { path: '/linealist', title: 'lineas', icon: 'design_app', class: '' },
   { path: '/lineacreate', title: 'crear linea', icon: 'design_app', class: '' },
   { path: '/lineasimulacionresults', title: 'Resultados de la simulación', icon: 'design_app', class: '' },
+  { path: '/lineaparadalist', title: 'paradas', icon: 'design_app', class: '' },
 
 
   // { path: '/dashboard', title: 'Dashboard', icon: 'design_app', class: '' },
