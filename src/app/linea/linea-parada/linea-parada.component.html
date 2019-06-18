@@ -1,18 +1,37 @@
 <div class="panel-header panel-header-lg">
-  <p>contenido</p>
+  <img src="assets/img/header.jpg" alt="...">
 </div>
 
 <div class="main-content">
   <div class="row">
-    <div class="col-lg-4">
+    <div class="col-lg-4" *ngFor="let linea of lineas">
       <div class="card card-chart">
         <div class="card-header">
-          <h5 class="card-category">Global Sales</h5>
-          <h4 class="card-title">Shipped Products</h4>
+          <h5 class="card-category">Paradas de la </h5>
+          <h4 class="card-title">{{ linea.nombre }}</h4>
         </div>
         <div class="card-body">
-          <div class="chart-area">
-            <p>contenido</p>
+          <div class="table-full-width table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  Origen
+                </th>
+                <th>
+                  Destino
+                </th>
+                <th>
+                  Tiempo
+                </th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let parada of linea.paradas">
+                  <td>{{ parada.origen }}</td>
+                  <td>{{ parada.destino }}</td>
+                  <td>{{ parada.tiempo }} min</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
         <div class="card-footer">
