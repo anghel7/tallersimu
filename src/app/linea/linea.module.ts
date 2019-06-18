@@ -11,6 +11,7 @@ import { LineaSimulacionDiaComponent } from './linea-simulacion-dia/linea-simula
 import { LineaSimulacionMesComponent } from './linea-simulacion-mes/linea-simulacion-mes.component';
 import { LineaSimulacionHoraComponent } from './linea-simulacion-hora/linea-simulacion-hora.component';
 import { LineaSimulacionSemanaComponent } from './linea-simulacion-semana/linea-simulacion-semana.component';
+import { LineaSimulacionResultsComponent } from './linea-simulacion-results/linea-simulacion-results.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LineaSimulacionSemanaComponent } from './linea-simulacion-semana/linea-
     LineaSimulacionDiaComponent,
     LineaSimulacionMesComponent,
     LineaSimulacionHoraComponent,
-    LineaSimulacionSemanaComponent
+    LineaSimulacionSemanaComponent,
+    LineaSimulacionResultsComponent
   ],
   exports: [
     LineaListComponent,

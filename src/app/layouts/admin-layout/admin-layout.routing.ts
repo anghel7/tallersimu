@@ -13,6 +13,7 @@ import { LineaSimulacionComponent } from '../../linea/linea-simulacion/linea-sim
 import { LineaCreateComponent } from '../../linea/linea-create/linea-create.component';
 import { LineaEditComponent } from '../../linea/linea-edit/linea-edit.component';
 import { InicioComponent } from '../../inicio/inicio.component';
+import { LineaSimulacionResultsComponent } from '../../linea/linea-simulacion-results/linea-simulacion-results.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -28,5 +29,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'lineasimulacion/:id', component: LineaSimulacionComponent },
     { path: 'lineacreate', component: LineaCreateComponent },
     { path: 'linea/:id/edit', component: LineaEditComponent },
-    { path: 'home', component: InicioComponent }
+    { path: 'home', component: InicioComponent },
+    { path: 'lineasimulacionresults', component: LineaSimulacionResultsComponent }
+
+
 ];
