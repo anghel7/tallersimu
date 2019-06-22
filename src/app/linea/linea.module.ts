@@ -15,6 +15,7 @@ import { LineaSimulacionResultsComponent } from './linea-simulacion-results/line
 import { LineaParadaComponent } from './linea-parada/linea-parada.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MyModalComponent } from './my-modal/my-modal.component';
+import { LineaSimulacionItemComponent } from './linea-simulacion-item/linea-simulacion-item.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MyModalComponent } from './my-modal/my-modal.component';
     LineaSimulacionSemanaComponent,
     LineaSimulacionResultsComponent,
     LineaParadaComponent,
-    MyModalComponent
+    MyModalComponent,
+    LineaSimulacionItemComponent
   ],
   exports: [
     LineaListComponent,
