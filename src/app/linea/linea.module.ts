@@ -13,6 +13,8 @@ import { LineaSimulacionHoraComponent } from './linea-simulacion-hora/linea-simu
 import { LineaSimulacionSemanaComponent } from './linea-simulacion-semana/linea-simulacion-semana.component';
 import { LineaSimulacionResultsComponent } from './linea-simulacion-results/linea-simulacion-results.component';
 import { LineaParadaComponent } from './linea-parada/linea-parada.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MyModalComponent } from './my-modal/my-modal.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { LineaParadaComponent } from './linea-parada/linea-parada.component';
     LineaSimulacionHoraComponent,
     LineaSimulacionSemanaComponent,
     LineaSimulacionResultsComponent,
-    LineaParadaComponent
+    LineaParadaComponent,
+    MyModalComponent
   ],
   exports: [
     LineaListComponent,
@@ -36,8 +39,10 @@ import { LineaParadaComponent } from './linea-parada/linea-parada.component';
     CommonModule,
     RouterModule,
     ChartsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
     //LineaRoutingModule
-  ]
+  ],
+  entryComponents: [MyModalComponent]
 })
 export class LineaModule { }

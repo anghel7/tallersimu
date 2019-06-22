@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../shared/services/data.service';
 import { DataLinea } from '../../shared/models/data-linea';
 import { log } from 'util';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MyModalComponent } from '../my-modal/my-modal.component';
 
 @Component({
   selector: 'app-linea-simulacion-results',
@@ -15,7 +17,15 @@ export class LineaSimulacionResultsComponent implements OnInit {
   public dataDias: DataTable;
   public dataHoras: DataTable;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService,
+    private modalService: NgbModal) { }
+
+  /** */
+  open() {
+    const modalRef = this.modalService.open(MyModalComponent);
+    modalRef.componentInstance.name = 'World';
+  }
+  /** */
 
   ngOnInit() {
     this.dataService.getAll()
