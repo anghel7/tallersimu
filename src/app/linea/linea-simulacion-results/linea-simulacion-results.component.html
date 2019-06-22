@@ -18,7 +18,7 @@
             <h4 class="card-title">Simulación por Meses</h4>
           </div>
           <div class="card-body">
-            <app-linea-simulacion-item></app-linea-simulacion-item>
+            <app-linea-simulacion-item [initialpoint]="initialPointMes"></app-linea-simulacion-item>
             <!-- <div class="table-full-width table-responsive">
               <table class="table" *ngIf="dataMeses">
                 <thead class="text-primary">
@@ -47,6 +47,7 @@
             <h4 class="card-title">Simulación por Semanas</h4>
           </div>
           <div class="card-body">
+            <app-linea-simulacion-item [initialpoint]="initialPointSemana"></app-linea-simulacion-item>
             <!-- <div class="table-full-width table-responsive">
               <table class="table" *ngIf="dataSemanas">
                 <thead class="text-primary">
@@ -75,6 +76,7 @@
             <h4 class="card-title"> Simulación por Dias</h4>
           </div>
           <div class="card-body">
+            <app-linea-simulacion-item [initialpoint]="initialPointdia"></app-linea-simulacion-item>
             <!-- <div class="table-full-width table-responsive">
               <table class="table" *ngIf="dataDias">
                 <thead class="text-primary">
@@ -103,6 +105,7 @@
             <h4 class="card-title">Simulación por Horas</h4>
           </div>
           <div class="card-body">
+            <app-linea-simulacion-item [initialpoint]="initialPointHora"></app-linea-simulacion-item>
             <!-- <div class="table-full-width table-responsive">
                   <table class="table" *ngIf="dataHoras">
                     <thead class="text-primary">

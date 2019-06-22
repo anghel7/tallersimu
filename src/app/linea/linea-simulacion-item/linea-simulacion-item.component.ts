@@ -42,19 +42,10 @@ export class LineaSimulacionItemComponent implements OnInit {
   public lineChartGradientsNumbersLabels: Array<any>;
   public lineChartGradientsNumbersColors: Array<any>
 
-  public graphicPoint: GraphicPoint = {
-    time: "Enero",
-    value: 0
-  };
+  @Input()
+  public initialpoint: GraphicPoint;
 
   public disableSimulacionBtn: boolean = false;
-
-  @Input()
-  public linea: Linea;
-
-  @Input()
-  public numvagones: number;
-
 
   // events
   public chartClicked(e: any): void {
@@ -64,6 +55,7 @@ export class LineaSimulacionItemComponent implements OnInit {
   public chartHovered(e: any): void {
     console.log(e);
   }
+
   public hexToRGB(hex, alpha) {
     var r = parseInt(hex.slice(1, 3), 16),
       g = parseInt(hex.slice(3, 5), 16),
@@ -93,7 +85,6 @@ export class LineaSimulacionItemComponent implements OnInit {
     this.lineBigDashboardChartData = [
       {
         label: "Data",
-
         pointBorderWidth: 1,
         pointHoverRadius: 7,
         pointHoverBorderWidth: 2,
@@ -101,17 +92,57 @@ export class LineaSimulacionItemComponent implements OnInit {
         fill: true,
         borderWidth: 2,
         data: []
-      }
+      },
+      /**** */
+      {
+        label: "Data",
+        pointBorderWidth: 1,
+        pointHoverRadius: 7,
+        pointHoverBorderWidth: 2,
+        pointRadius: 5,
+        fill: true,
+        borderWidth: 2,
+        data: []
+      },
+      /**** */
+      {
+        label: "Data",
+        pointBorderWidth: 1,
+        pointHoverRadius: 7,
+        pointHoverBorderWidth: 2,
+        pointRadius: 5,
+        fill: true,
+        borderWidth: 2,
+        data: []
+      },
     ];
     this.lineBigDashboardChartColors = [
       {
         backgroundColor: this.gradientFill,
-        borderColor: this.chartColor,
-        pointBorderColor: this.chartColor,
-        pointBackgroundColor: "#2c2c2c",
-        pointHoverBackgroundColor: "#2c2c2c",
-        pointHoverBorderColor: this.chartColor,
-      }
+        borderColor: "#FF0000",
+        pointBorderColor: "#FF0000",
+        pointBackgroundColor: "#FF0000",
+        pointHoverBackgroundColor: "#FFFFFF",
+        pointHoverBorderColor: "#FF0000",
+      },
+      /**** */
+      {
+        backgroundColor: this.gradientFill,
+        borderColor: "#FFFF00",
+        pointBorderColor: "#FFFF00",
+        pointBackgroundColor: "#FFFF00",
+        pointHoverBackgroundColor: "#FFFFFF",
+        pointHoverBorderColor: "#FFFF00",
+      },
+      /**** */
+      {
+        backgroundColor: this.gradientFill,
+        borderColor: "#00FF00",
+        pointBorderColor: "#00FF00",
+        pointBackgroundColor: "#00FF00",
+        pointHoverBackgroundColor: "#FFFFFF",
+        pointHoverBorderColor: "#00FF00",
+      },
     ];
     this.lineBigDashboardChartLabels = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
     this.lineBigDashboardChartOptions = {
@@ -272,7 +303,7 @@ export class LineaSimulacionItemComponent implements OnInit {
     };
   }
 
-  iniciarSimulacion(): void {
+  playSimulation(): void {
     this.disableSimulacionBtn = true;
     let graphicPoints: GraphicPoint[] = [{ "value": 110, "time": "Enero" }, { "value": 105, "time": "Febrero" }, { "value": 95, "time": "Marzo" }, { "value": 100, "time": "Abril" }, { "value": 85, "time": "Mayo" }, { "value": 110, "time": "Junio" }, { "value": 135, "time": "Julio" }, { "value": 175, "time": "Agosto" }, { "value": 180, "time": "Septiembre" }, { "value": 185, "time": "Octubre" }, { "value": 170, "time": "Noviembre" }, { "value": 198, "time": "Diciembre" }];
     let data: any[] = [];
@@ -282,8 +313,8 @@ export class LineaSimulacionItemComponent implements OnInit {
     ).subscribe(
       graphicPointItem => {
         data.push(graphicPointItem.value);
-        this.graphicPoint.time = graphicPointItem.time;
-        this.graphicPoint.value = graphicPointItem.value;
+        this.initialpoint.time = graphicPointItem.time;
+        this.initialpoint.value = graphicPointItem.value;
         this.mostrarGrafico(data);
       },
       error => { },
@@ -292,6 +323,14 @@ export class LineaSimulacionItemComponent implements OnInit {
       }
     );
 
+  }
+
+  stopSimulation(): void {
+    console.log('stop simulartion');
+  }
+
+  offSimulation(): void {
+    console.log('off simulartion');
   }
 
   mostrarGrafico(data: any[]): void {

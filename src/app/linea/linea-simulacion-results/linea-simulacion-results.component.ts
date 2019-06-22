@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../shared/services/data.service';
 import { DataLinea } from '../../shared/models/data-linea';
-import { log } from 'util';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { MyModalComponent } from '../my-modal/my-modal.component';
+import { GraphicPoint } from '../../shared/models/graphic-point';
 
 @Component({
   selector: 'app-linea-simulacion-results',
@@ -17,8 +17,26 @@ export class LineaSimulacionResultsComponent implements OnInit {
   public dataDias: DataTable;
   public dataHoras: DataTable;
 
+  public initialPointMes: GraphicPoint = {
+    time: "Enero",
+    value: 0
+  };
+  public initialPointSemana: GraphicPoint = {
+    time: "Semana 1",
+    value: 0
+  };
+  public initialPointdia: GraphicPoint = {
+    time: "Lunes",
+    value: 0
+  };
+  public initialPointHora: GraphicPoint = {
+    time: "06:00",
+    value: 0
+  };
+
   constructor(private dataService: DataService,
     private modalService: NgbModal) { }
+
 
   /** */
   open() {
