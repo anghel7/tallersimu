@@ -3,7 +3,23 @@
     <h4 class="card-title">Distribución Bernoulli</h4>
   </div>
   <div class="card-body">
-    <h1>Distribución content</h1>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="row">
+        <div class="col-md-5 pr-1">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input formControlName="nombre" type="text" class="form-control" placeholder="Nombre">
+          </div>
+        </div>
+        <div class="col-md-7 px-1">
+          <div class="form-group">
+            <label>Descripción</label>
+            <input formControlName="descripcion" type="text" class="form-control" placeholder="Descripción">
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-sm">Aceptar</button>
+    </form>
   </div>
   <div class="card-footer">
     <div class="stats">

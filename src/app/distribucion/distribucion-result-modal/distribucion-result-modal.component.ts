@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-distribucion-result-modal',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DistribucionResultModalComponent implements OnInit {
 
-  constructor() { }
+  @Input() tbody;
+  @Input() thead;
+
+  constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit() {
   }
