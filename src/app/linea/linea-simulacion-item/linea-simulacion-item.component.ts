@@ -399,8 +399,6 @@ export class LineaSimulacionItemComponent implements OnInit {
   }
 
   showResults(): void {
-    //const modalRef = this.modalService.open(MyModalComponent);
-    //modalRef.componentInstance.name = 'World';
     let response: DataLinea[] = this.dataService.getAllI();
     let verticalHeaders: any[] = response.map((e) => e.nombre);
     verticalHeaders.unshift("");
@@ -415,5 +413,8 @@ export class LineaSimulacionItemComponent implements OnInit {
       });
       body.push(array);
     }
+    const modalRef = this.modalService.open(MyModalComponent);
+    modalRef.componentInstance.tbody = body;
+    modalRef.componentInstance.thead = verticalHeaders;
   }
 }

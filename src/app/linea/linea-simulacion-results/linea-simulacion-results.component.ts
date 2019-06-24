@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../shared/services/data.service';
 import { DataLinea } from '../../shared/models/data-linea';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { MyModalComponent } from '../my-modal/my-modal.component';
 import { GraphicPoint } from '../../shared/models/graphic-point';
 
 @Component({
@@ -34,16 +32,8 @@ export class LineaSimulacionResultsComponent implements OnInit {
     value: 0
   };
 
-  constructor(private dataService: DataService,
-    private modalService: NgbModal) { }
+  constructor(private dataService: DataService) { }
 
-
-  /** */
-  open() {
-    const modalRef = this.modalService.open(MyModalComponent);
-    modalRef.componentInstance.name = 'World';
-  }
-  /** */
 
   ngOnInit() {
     this.dataService.getAll()

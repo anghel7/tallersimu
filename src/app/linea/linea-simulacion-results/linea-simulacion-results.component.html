@@ -1,6 +1,3 @@
-<!---->
-<!-- <button class="btn btn-lg btn-outline-primary" (click)="open()">Launch demo modal</button> -->
-<!---->
 <div class="panel-header panel-header-lg">
   <img src="assets/img/header.jpg" alt="...">
 </div>
@@ -20,25 +17,6 @@
           <div class="card-body">
             <app-linea-simulacion-item [initialpoint]="initialPointMes" [datatime]="'datameses'">
             </app-linea-simulacion-item>
-            <!-- <div class="table-full-width table-responsive">
-              <table class="table" *ngIf="dataMeses">
-                <thead class="text-primary">
-                  <th *ngFor="let header of dataMeses.headers">
-                    {{ header }}
-                  </th>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let column of dataMeses.columns">
-                    <td *ngFor="let value of column;  let i = index">
-                      <b *ngIf="i == 0; else normal">{{ value }}</b>
-                      <ng-template #normal>
-                        {{ value }}
-                      </ng-template>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div> -->
           </div>
         </div>
       </div>
@@ -48,27 +26,8 @@
             <h4 class="card-title">Simulación por Semanas</h4>
           </div>
           <div class="card-body">
-            <!-- <app-linea-simulacion-item [initialpoint]="initialPointSemana" [datatime]="'datasemanas'">
-            </app-linea-simulacion-item> -->
-            <!-- <div class="table-full-width table-responsive">
-              <table class="table" *ngIf="dataSemanas">
-                <thead class="text-primary">
-                  <th *ngFor="let header of dataSemanas.headers">
-                    {{ header }}
-                  </th>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let column of dataSemanas.columns">
-                    <td *ngFor="let value of column;  let i = index">
-                      <b *ngIf="i == 0; else normal">{{ value }}</b>
-                      <ng-template #normal>
-                        {{ value }}
-                      </ng-template>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div> -->
+            <app-linea-simulacion-item [initialpoint]="initialPointSemana" [datatime]="'datasemanas'">
+            </app-linea-simulacion-item>
           </div>
         </div>
       </div>
@@ -78,27 +37,8 @@
             <h4 class="card-title"> Simulación por Dias</h4>
           </div>
           <div class="card-body">
-            <!-- <app-linea-simulacion-item [initialpoint]="initialPointdia" [datatime]="'datadias'">
-            </app-linea-simulacion-item> -->
-            <!-- <div class="table-full-width table-responsive">
-              <table class="table" *ngIf="dataDias">
-                <thead class="text-primary">
-                  <th *ngFor="let header of dataDias.headers">
-                    {{ header }}
-                  </th>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let column of dataDias.columns">
-                    <td *ngFor="let value of column;  let i = index">
-                      <b *ngIf="i == 0; else normal">{{ value }}</b>
-                      <ng-template #normal>
-                        {{ value }}
-                      </ng-template>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div> -->
+            <app-linea-simulacion-item [initialpoint]="initialPointdia" [datatime]="'datadias'">
+            </app-linea-simulacion-item>
           </div>
         </div>
       </div>
@@ -108,27 +48,8 @@
             <h4 class="card-title">Simulación por Horas</h4>
           </div>
           <div class="card-body">
-            <!-- <app-linea-simulacion-item [initialpoint]="initialPointHora" [datatime]="'datahoras'">
-            </app-linea-simulacion-item> -->
-            <!-- <div class="table-full-width table-responsive">
-                  <table class="table" *ngIf="dataHoras">
-                    <thead class="text-primary">
-                      <th *ngFor="let header of dataHoras.headers">
-                        {{ header }}
-                      </th>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let column of dataHoras.columns">
-                        <td *ngFor="let value of column;  let i = index">
-                          <b *ngIf="i == 0; else normal">{{ value }}</b>
-                          <ng-template #normal>
-                            {{ value }}
-                          </ng-template>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div> -->
+            <app-linea-simulacion-item [initialpoint]="initialPointHora" [datatime]="'datahoras'">
+            </app-linea-simulacion-item>
           </div>
         </div>
       </div>
