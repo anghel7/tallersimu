@@ -13,6 +13,7 @@ export class LineaCreateComponent implements OnInit {
 
   lineaForm = this.formBuilder.group({
     id: [undefined],
+    color: ["#FFFFFF"],
     nombre: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
     descripcion: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
 

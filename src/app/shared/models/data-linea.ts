@@ -7,4 +7,5 @@ export interface DataLinea {
  datadias: GraphicPoint[];
  nombre: string;
  idlinea: number;
+ color: string | "#FFFFFF";
 };

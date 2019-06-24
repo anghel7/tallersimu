@@ -20,6 +20,9 @@ export class DataService {
       }
     );
   }
+  getAllI(): DataLinea[] {
+    return DATA;
+  }
 }
 
 
@@ -538,7 +541,8 @@ const DATA: DataLinea[] = [
       }
     ],
     "nombre": "Linea Roja",
-    "idlinea": 1
+    "idlinea": 1,
+    "color": "#FF0000"
   },
   {
     "datameses": [
@@ -1054,7 +1058,8 @@ const DATA: DataLinea[] = [
       }
     ],
     "nombre": "Linea Amarilla",
-    "idlinea": 2
+    "idlinea": 2,
+    "color": "#FFFF00"
   },
   {
     "datameses": [
@@ -1570,6 +1575,7 @@ const DATA: DataLinea[] = [
       }
     ],
     "nombre": "Linea Verde",
-    "idlinea": 3
+    "idlinea": 3,
+    "color": "#00FF00"
   }
 ];
