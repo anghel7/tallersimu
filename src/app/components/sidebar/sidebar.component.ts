@@ -12,7 +12,7 @@ export const ROUTES: RouteInfo[] = [
   { path: '/lineacreate', title: 'crear linea', icon: 'design_app', class: '' },
   { path: '/lineasimulacionresults', title: 'Simulación', icon: 'design_app', class: '' },
   { path: '/lineaparadalist', title: 'paradas', icon: 'design_app', class: '' },
-  { path: '/distribucionlist', title: 'distribuciones', icon: 'design_app', class: '' },
+  //{ path: '/distribucionlist', title: 'distribuciones', icon: 'design_app', class: '' },
 
 
   // { path: '/dashboard', title: 'Dashboard', icon: 'design_app', class: '' },
