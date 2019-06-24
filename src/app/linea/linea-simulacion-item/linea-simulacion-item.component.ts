@@ -76,12 +76,13 @@ export class LineaSimulacionItemComponent implements OnInit {
     let response: DataLinea[] = this.dataService.getAllI();
     this.initialize(
       this.getInitialData(response),
-      this.getHeaders(response)
+      this.getHeaders()
     );
 
   }
 
-  public getHeaders(response: DataLinea[]): any[] {
+  public getHeaders(): any[] {
+    let response: DataLinea[] = this.dataService.getAllI();
     let array: any[] = response.map((e) => {
       return e[this.datatime].map((t) => t.time);
     });
@@ -314,50 +315,58 @@ export class LineaSimulacionItemComponent implements OnInit {
 
   private intervalId: any = 0;
   private counter: number = 0;
+  private isMapped: boolean = false;
+  private globalData: any[] = [];
+
+  getGlobalData(): any[] {
+    if (this.isMapped) {
+      return this.globalData;
+    } else {
+      let response: DataLinea[] = this.dataService.getAllI();
+      let data: any[] = response.map((element) => {
+        return {
+          color: element.color,
+          data: element[this.datatime].map((e) => e.value)
+        }
+      });
+      data = data.map((element) => {
+        return {
+          color: element.color,
+          data: element.data.map((e) => {
+            let randomNumber: number = Math.random() * (1.15 - 0.85) + 0.85;
+            return Math.floor(e * randomNumber);
+          })
+
+        }
+      });
+      this.isMapped = true;
+      this.globalData = data;
+      return data;
+    }
+  }
 
   playSimulation(): void {
     this.disableSimulacionBtn = true;
-    let response: DataLinea[] = this.dataService.getAllI();
-    let data: any[] = response.map((element) => {
-      return {
-        color: element.color,
-        data: element[this.datatime].map((e) => e.value)
-      }
-    });
-    let headers: any[] = this.getHeaders(response);
-    //console.log('>>',headers);
-
-    //this.initialize(data, headers);
+    let data: any[] = this.getGlobalData();
+    let headers: any[] = this.getHeaders();
     this.intervalId = setInterval(() => {
       if (this.counter < headers.length) {
-        console.log('counter> ', headers[this.counter]);
+        let dataToSend: any[] = data.map((element) => {
+          return {
+            color: element.color,
+            data: element.data.slice(0, this.counter + 1)
+          };
+        });
+        this.initialize(dataToSend, headers);
         this.counter++;
       } else {
-        this.offSimulation();
+        clearInterval(this.intervalId);
+        this.counter = 0;
+        this.disableSimulacionBtn = false;
+        this.isMapped = false;
       }
 
-    }, 500);
-
-
-
-    // this.disableSimulacionBtn = true;
-    // let graphicPoints: GraphicPoint[] = [{ "value": 110, "time": "Enero" }, { "value": 105, "time": "Febrero" }, { "value": 95, "time": "Marzo" }, { "value": 100, "time": "Abril" }, { "value": 85, "time": "Mayo" }, { "value": 110, "time": "Junio" }, { "value": 135, "time": "Julio" }, { "value": 175, "time": "Agosto" }, { "value": 180, "time": "Septiembre" }, { "value": 185, "time": "Octubre" }, { "value": 170, "time": "Noviembre" }, { "value": 198, "time": "Diciembre" }];
-    // let data: any[] = [];
-
-    // from(graphicPoints).pipe(
-    //   concatMap(item => of(item).pipe(delay(1500)))
-    // ).subscribe(
-    //   graphicPointItem => {
-    //     data.push(graphicPointItem.value);
-    //     this.initialpoint.time = graphicPointItem.time;
-    //     this.initialpoint.value = graphicPointItem.value;
-    //     this.mostrarGrafico(data);
-    //   },
-    //   error => { },
-    //   () => {
-    //     this.disableSimulacionBtn = false;
-    //   }
-    // );
+    }, 1000);
 
   }
 
@@ -370,6 +379,8 @@ export class LineaSimulacionItemComponent implements OnInit {
     clearInterval(this.intervalId);
     this.counter = 0;
     this.disableSimulacionBtn = false;
+    this.isMapped = false;
+    this.ngOnInit();
   }
 
 }
