@@ -16,37 +16,37 @@ export class LineaService {
       {
         "id": 0,
         "numero": 1,
-        "cantidad": 4,
+        "cantidad": 220,
         "checked": true
       },
       {
         "id": 0,
         "numero": 2,
-        "cantidad": 100,
+        "cantidad": 220,
         "checked": true
       },
       {
         "id": 0,
         "numero": 3,
-        "cantidad": 100,
+        "cantidad": 220,
         "checked": true
       },
       {
         "id": 0,
         "numero": 4,
-        "cantidad": 100,
+        "cantidad": 220,
         "checked": true
       },
       {
         "id": 0,
         "numero": 5,
-        "cantidad": 90,
+        "cantidad": 220,
         "checked": true
       },
       {
         "id": 0,
         "numero": 6,
-        "cantidad": 90,
+        "cantidad": 220,
         "checked": true
       }
     ],
@@ -97,49 +97,49 @@ export class LineaService {
       {
         "id": 0,
         "numero": 1,
-        "cantidad": 3,
+        "cantidad": 220,
         "checked": true
       },
       {
         "id": 0,
         "numero": 2,
-        "cantidad": 105,
+        "cantidad": 220,
         "checked": true
       },
       {
         "id": 0,
         "numero": 3,
-        "cantidad": 107,
+        "cantidad": 220,
         "checked": true
       },
       {
         "id": 0,
         "numero": 4,
-        "cantidad": 102,
+        "cantidad": 220,
         "checked": true
       },
       {
         "id": 0,
         "numero": 5,
-        "cantidad": 99,
+        "cantidad": 220,
         "checked": true
       },
       {
         "id": 0,
         "numero": 6,
-        "cantidad": 100,
+        "cantidad": 220,
         "checked": true
       },
       {
         "id": 0,
         "numero": 7,
-        "cantidad": 99,
+        "cantidad": 220,
         "checked": true
       },
       {
         "id": 0,
         "numero": 8,
-        "cantidad": 100,
+        "cantidad": 220,
         "checked": true
       }
     ],
@@ -214,61 +214,61 @@ export class LineaService {
       {
         "id": 0,
         "numero": 2,
-        "cantidad": 105,
+        "cantidad": 220,
         "checked": true
       },
       {
         "id": 0,
         "numero": 3,
-        "cantidad": 107,
+        "cantidad": 220,
         "checked": true
       },
       {
         "id": 0,
         "numero": 4,
-        "cantidad": 108,
+        "cantidad": 220,
         "checked": true
       },
       {
         "id": 0,
         "numero": 5,
-        "cantidad": 100,
+        "cantidad": 220,
         "checked": true
       },
       {
         "id": 0,
         "numero": 6,
-        "cantidad": 103,
+        "cantidad": 220,
         "checked": true
       },
       {
         "id": 0,
         "numero": 7,
-        "cantidad": 95,
+        "cantidad": 220,
         "checked": true
       },
       {
         "id": 0,
         "numero": 8,
-        "cantidad": 98,
+        "cantidad": 220,
         "checked": true
       },
       {
         "id": 0,
         "numero": 9,
-        "cantidad": 101,
+        "cantidad": 220,
         "checked": true
       },
       {
         "id": 0,
         "numero": 10,
-        "cantidad": 90,
+        "cantidad": 220,
         "checked": true
       },
       {
         "id": 0,
         "numero": 8,
-        "cantidad": 110,
+        "cantidad": 220,
         "checked": true
       }
     ],
