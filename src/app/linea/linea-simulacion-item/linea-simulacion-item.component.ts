@@ -114,7 +114,11 @@ export class LineaSimulacionItemComponent implements OnInit {
     return res;
   }
 
+  public tbody: any[] = [];
+
   loadDataToGraphic(datas: any[], labels: any[]): void {
+    //console.log('datas ', datas);
+
     this.chartColor = "#FFFFFF";
     this.canvas = document.getElementById("bigDashboardChart");
     this.ctx = this.canvas.getContext("2d");
@@ -129,7 +133,13 @@ export class LineaSimulacionItemComponent implements OnInit {
     /** */
     this.lineBigDashboardChartData = [];
     this.lineBigDashboardChartColors = [];
+    let array: any[] = [];
     datas.forEach(element => {
+
+
+      //if (!element.data[element.data.length - 1])
+      array.push(element.data[element.data.length - 1]);
+
       this.lineBigDashboardChartData.push(
         {
           label: "Pasajeros",
@@ -153,6 +163,10 @@ export class LineaSimulacionItemComponent implements OnInit {
         }
       );
     });
+
+    if (array[0])
+      this.tbody.push(array);
+
     /** */
     this.lineBigDashboardChartLabels = labels;
     this.lineBigDashboardChartOptions = {
@@ -381,14 +395,25 @@ export class LineaSimulacionItemComponent implements OnInit {
     this.disableSimulacionBtn = false;
     this.isMapped = false;
     this.ngOnInit();
+    this.tbody = [];
   }
 
   showResults(): void {
     //const modalRef = this.modalService.open(MyModalComponent);
     //modalRef.componentInstance.name = 'World';
     let response: DataLinea[] = this.dataService.getAllI();
-    console.log('Horizontal headers', response.map((e) => e.nombre));
-    console.log('Vetical headers', response.map((e) => e[this.datatime])[0].map((f) => [f.time,"a","b"]));
-
+    let verticalHeaders: any[] = response.map((e) => e.nombre);
+    verticalHeaders.unshift("");
+    let horizontalHeaders: any[] = response.map((e) => e[this.datatime])[0].map((f) => f.time);
+    let body: any[] = [];
+    for (let index = 0; index < this.tbody.length; index++) {
+      const element = this.tbody[index];
+      let array: any[] = [];
+      array.push(horizontalHeaders[index])
+      element.forEach(e => {
+        array.push(e);
+      });
+      body.push(array);
+    }
   }
 }
