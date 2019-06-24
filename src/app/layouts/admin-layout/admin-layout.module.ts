@@ -16,6 +16,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { LineaModule } from '../../linea/linea.module';
 import { InicioComponent } from '../../inicio/inicio.component';
+import { DistribucionModule } from '../../distribucion/distribucion.module';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { InicioComponent } from '../../inicio/inicio.component';
     ChartsModule,
     NgbModule,
     ToastrModule.forRoot(),
-    LineaModule
+    LineaModule,
+    DistribucionModule
   ],
   declarations: [
     DashboardComponent,

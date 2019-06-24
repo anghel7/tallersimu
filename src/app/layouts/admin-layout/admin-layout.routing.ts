@@ -15,6 +15,7 @@ import { LineaEditComponent } from '../../linea/linea-edit/linea-edit.component'
 import { InicioComponent } from '../../inicio/inicio.component';
 import { LineaSimulacionResultsComponent } from '../../linea/linea-simulacion-results/linea-simulacion-results.component';
 import { LineaParadaComponent } from '../../linea/linea-parada/linea-parada.component';
+import { DistribucionListComponent } from '../../distribucion/distribucion-list/distribucion-list.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -32,7 +33,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'linea/:id/edit', component: LineaEditComponent },
     { path: 'home', component: InicioComponent },
     { path: 'lineasimulacionresults', component: LineaSimulacionResultsComponent },
-    { path: 'lineaparadalist', component: LineaParadaComponent }
+    { path: 'lineaparadalist', component: LineaParadaComponent },
+    { path: 'distribucionlist', component: DistribucionListComponent },
 
 
 ];
