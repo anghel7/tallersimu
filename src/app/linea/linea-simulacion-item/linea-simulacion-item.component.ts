@@ -74,7 +74,7 @@ export class LineaSimulacionItemComponent implements OnInit {
 
   ngOnInit() {
     let response: DataLinea[] = this.dataService.getAllI();
-    this.initialize(
+    this.loadDataToGraphic(
       this.getInitialData(response),
       this.getHeaders()
     );
@@ -114,7 +114,7 @@ export class LineaSimulacionItemComponent implements OnInit {
   }
 
 
-  initialize(datas: any[], labels: any[]): void {
+  loadDataToGraphic(datas: any[], labels: any[]): void {
     this.chartColor = "#FFFFFF";
     this.canvas = document.getElementById("bigDashboardChart");
     this.ctx = this.canvas.getContext("2d");
@@ -357,7 +357,7 @@ export class LineaSimulacionItemComponent implements OnInit {
             data: element.data.slice(0, this.counter + 1)
           };
         });
-        this.initialize(dataToSend, headers);
+        this.loadDataToGraphic(dataToSend, headers);
         this.counter++;
       } else {
         clearInterval(this.intervalId);
