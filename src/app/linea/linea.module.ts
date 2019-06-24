@@ -48,3 +48,4 @@ import { LineaSimulacionItemComponent } from './linea-simulacion-item/linea-simu
   entryComponents: [MyModalComponent]
 })
 export class LineaModule { }
+//ng build --prod --base-href "https://anghel7.github.io/tallersimu/"
