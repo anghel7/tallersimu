@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GraphicPoint } from '../../shared/models/graphic-point';
-import { from, of } from 'rxjs';
-import { delay, concatMap, timeout } from 'rxjs/operators';
 import { DataLinea } from '../../shared/models/data-linea';
 import { DataService } from '../../shared/services/data.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MyModalComponent } from '../my-modal/my-modal.component';
 
 @Component({
   selector: 'app-linea-simulacion-item',
@@ -70,7 +70,8 @@ export class LineaSimulacionItemComponent implements OnInit {
       return "rgb(" + r + ", " + g + ", " + b + ")";
     }
   }
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService,
+    private modalService: NgbModal) { }
 
   ngOnInit() {
     let response: DataLinea[] = this.dataService.getAllI();
@@ -112,7 +113,6 @@ export class LineaSimulacionItemComponent implements OnInit {
     );
     return res;
   }
-
 
   loadDataToGraphic(datas: any[], labels: any[]): void {
     this.chartColor = "#FFFFFF";
@@ -383,4 +383,12 @@ export class LineaSimulacionItemComponent implements OnInit {
     this.ngOnInit();
   }
 
+  showResults(): void {
+    //const modalRef = this.modalService.open(MyModalComponent);
+    //modalRef.componentInstance.name = 'World';
+    let response: DataLinea[] = this.dataService.getAllI();
+    console.log('Horizontal headers', response.map((e) => e.nombre));
+    console.log('Vetical headers', response.map((e) => e[this.datatime])[0].map((f) => [f.time,"a","b"]));
+
+  }
 }

@@ -10,7 +10,7 @@ export const ROUTES: RouteInfo[] = [
   { path: '/home', title: 'Inicio', icon: 'design_app', class: '' },
   { path: '/linealist', title: 'lineas', icon: 'design_app', class: '' },
   { path: '/lineacreate', title: 'crear linea', icon: 'design_app', class: '' },
-  { path: '/lineasimulacionresults', title: 'Resultados de la simulación', icon: 'design_app', class: '' },
+  { path: '/lineasimulacionresults', title: 'Simulación', icon: 'design_app', class: '' },
   { path: '/lineaparadalist', title: 'paradas', icon: 'design_app', class: '' },
 
 
